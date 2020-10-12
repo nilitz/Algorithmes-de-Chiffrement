@@ -2,14 +2,20 @@ import cesar
 import md5
 import hill
 import numpy as np
+import math
 
 if __name__ == '__main__':
-    """
     # HILL DEMONSTRATION :
 
     hill_encryption_matrix = np.array([[9, 4], [5, 7]])
-    hill_encryption_message = 'hello'
-    hill.hill_encryption(hill_encryption_message, hill_encryption_matrix)
+    hill_decrypted_message = 'jevousaime'
+    hill_encrypted_message = hill.hill_encryption(hill_decrypted_message, hill_encryption_matrix)
+    print(hill_encrypted_message)
+
+    hill_decrypted_message = hill.hill_decryption(hill_encrypted_message, hill_encryption_matrix)
+    print(hill_decrypted_message)
+
+
     """
     
     # MD5 DEMONSTRATION :
@@ -17,7 +23,7 @@ if __name__ == '__main__':
     md5_encrypted_message = '6d1523b39a9904958cada602dc52c7d4'
     md5.encryption('hello')  # hello
     md5.decryption(md5_encrypted_message)
-
+    """
 
     """
     # CESAR DEMONSTRATION :
