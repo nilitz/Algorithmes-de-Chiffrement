@@ -42,6 +42,11 @@ def hill_encryption(message, key):
     encrypted_message = matrix_calcul(message, key)
     return encrypted_message
 
+def get_inverse(matrix):
+    for l in range(0, len(matrix)):
+        for c in range(0, len(matrix[0])):
+            print('test')
+
 
 def hill_decryption(encrypted_message, key):
     encrypted_message = encrypted_message.upper()
@@ -50,6 +55,11 @@ def hill_decryption(encrypted_message, key):
     matrix = np.array([[key[1][1], - key[0][1]], [- key[1][0], key[0][0]]])
 
     prime_array = prime_numbers(multiplier)
+
+    print(get_inverse(key))
+    inversed_key = np.linalg.inv(key)
+
+    print(inversed_key)
 
     i = 0
     tested_prime = prime_array[i]
