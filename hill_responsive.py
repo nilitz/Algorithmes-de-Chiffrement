@@ -3,6 +3,25 @@ import math
 import numpy as np
 
 
+def prime_numbers(max):
+    array = []
+    count = 3
+
+    while count < max:
+        is_prime = True
+
+        for x in range(2, int(math.sqrt(count) + 1)):
+            if count % x == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            array.insert(len(array), count)
+
+        count += 1
+    return array
+
+
 def matrix_calcul(message, key):
     message = message.upper()
 
@@ -33,12 +52,26 @@ def matrix_calcul(message, key):
 
 
 def hill_responsive_encryption(message, key):
-
     encrypted_message = matrix_calcul(message, key)
     return encrypted_message
 
 
 def hill_responsive_decryption(encrypted_message, key):
+    determinant = int(np.linalg.det(key))
+    inverse = np.linalg.inv(key) * determinant
+    decryption_matrix = key
 
-    inversed_key = np.linalg.inv(key)
-    print(inversed_key)
+    prime_array = prime_numbers(500)
+    i = 0
+    tested_prime = prime_array[i]
+
+    while (determinant * tested_prime) % 26 != 1:
+        i = i + 1
+        tested_prime = prime_array[i]
+
+    for l in range(0, len(inverse)):
+        for c in range(0, len(inverse[0])):
+            decryption_matrix[l][c] = int(round(inverse[l][c]))
+    matrix = (tested_prime * decryption_matrix) % 26
+
+    return matrix_calcul(encrypted_message, matrix)

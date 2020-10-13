@@ -1,35 +1,28 @@
 import cesar
 import md5
-import hill
 import hill_responsive
 import numpy as np
 import math
 
 if __name__ == '__main__':
     # HILL DEMONSTRATION :
-    hill_decrypted_message = 'jevousaimepourtoujours'
 
-    hill_encryption_matrix = np.array([[9, 4], [5, 7]])
-    
-    hill_encrypted_message = hill.hill_encryption(hill_decrypted_message, hill_encryption_matrix)
-    print(hill_encrypted_message)
-
-    hill_decrypted_message = hill.hill_decryption(hill_encrypted_message, hill_encryption_matrix)
-    print(hill_decrypted_message)
-    """
+    print("-------------- HILL --------------")
+    hill_decrypted_message = 'jevouse'
+    print("message : ", hill_decrypted_message)
 
     hill_encryption_matrix = np.array([[9, 4], [5, 7]])
     hill_encrypted_message = hill_responsive.hill_responsive_encryption(hill_decrypted_message, hill_encryption_matrix)
-    print(hill_encrypted_message)
+    hill_decrypted_message = hill_responsive.hill_responsive_decryption(hill_encrypted_message,np.array([[9, 4], [5, 7]]))
+    print("used matrix :\n", hill_encryption_matrix, "\nencrypted message : ", hill_encrypted_message, "\ndecrypted message : ", hill_decrypted_message, "\n-------------- BREAK --------------")
 
     hill_encryption_matrix = np.array([[1, 3, -1], [6, 1, 1], [-5, 4, -3]])
     hill_encrypted_message = hill_responsive.hill_responsive_encryption(hill_decrypted_message, hill_encryption_matrix)
-    print(hill_encrypted_message)
+    hill_decrypted_message = hill_responsive.hill_responsive_decryption(hill_encrypted_message, hill_encryption_matrix)
 
-    hill_responsive.hill_responsive_decryption(hill_encrypted_message, hill_encryption_matrix)
+    print("used matrix :\n", hill_encryption_matrix, "\nencrypted message : ", hill_encrypted_message, "\ndecrypted message : ", hill_decrypted_message, "\n-------------- BREAK --------------")
 
-    
-    
+    """
     # MD5 DEMONSTRATION :
 
     md5_encrypted_message = '6d1523b39a9904958cada602dc52c7d4'
