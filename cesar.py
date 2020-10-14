@@ -1,6 +1,3 @@
-import string
-
-
 def number_to_letter(number):
     if number < 65:
         letter = chr(90 - (65 - number))

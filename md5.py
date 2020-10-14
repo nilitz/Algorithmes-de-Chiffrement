@@ -1,4 +1,3 @@
-import base64 as b64
 import hashlib
 import string
 
