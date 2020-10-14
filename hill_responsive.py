@@ -2,7 +2,8 @@ import math
 
 import numpy as np
 
-def matrix_calcul(message, key):
+
+def matrix_calculus(message, key):
     message = message.upper()
 
     analysed_message = ''
@@ -32,7 +33,7 @@ def matrix_calcul(message, key):
 
 
 def hill_responsive_encryption(message, key):
-    encrypted_message = matrix_calcul(message, key)
+    encrypted_message = matrix_calculus(message, key)
     return encrypted_message
 
 
@@ -56,4 +57,4 @@ def hill_responsive_decryption(encrypted_message, key):
             decryption_matrix[r][c] = int(round(inverse[r][c]))
     matrix = (new_tested_prime * decryption_matrix) % 26
 
-    return matrix_calcul(encrypted_message, matrix)
+    return matrix_calculus(encrypted_message, matrix)
