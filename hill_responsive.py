@@ -1,5 +1,3 @@
-import math
-
 import numpy as np
 
 
@@ -38,23 +36,22 @@ def hill_responsive_encryption(message, key):
 
 
 def hill_responsive_decryption(encrypted_message, key):
+    i = 0
+
+    array = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
+    tested_number = array[i]
+
     determinant = int(np.linalg.det(key))
     inverse = np.linalg.inv(key) * determinant
     decryption_matrix = key
 
-    i = 0
-
-    array = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
-
-    new_tested_prime = array[i]
-
-    while (determinant * new_tested_prime) % 26 != 1:
+    while (determinant * tested_number) % 26 != 1:
         i = i + 1
-        new_tested_prime = array[i]
+        tested_number = array[i]
 
     for r in range(0, len(inverse)):
         for c in range(0, len(inverse[0])):
             decryption_matrix[r][c] = int(round(inverse[r][c]))
-    matrix = (new_tested_prime * decryption_matrix) % 26
+    matrix = (tested_number * decryption_matrix) % 26
 
     return matrix_calculus(encrypted_message, matrix)

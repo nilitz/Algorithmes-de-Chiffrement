@@ -18,12 +18,13 @@ def hill(hill_decrypted_message, hill_encryption_matrix):
 
 
 if __name__ == '__main__':
+
     # HILL DEMONSTRATION :
 
     hill('jevousaime', np.array([[9, 4], [5, 7]]))
     hill('dictionnaire', np.array([[1, 3, -1], [6, 1, 1], [-5, 4, -3]]))
 
-    """
+"""
     # MD5 DEMONSTRATION :
 
     md5.encryption('hello')  # hello
